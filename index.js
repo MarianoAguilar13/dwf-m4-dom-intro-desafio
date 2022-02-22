@@ -40,8 +40,13 @@ function main() {
     ulLista[0].removeChild(ulLista[0].firstChild);
   }*/
   for (let i = 0; i < cosasQueAprendimos.length; i++) {
-    var newLiEl = document.createElement("li"); //creo el li
+    const newLiEl = document.createElement("li"); //creo el li
     newLiEl.textContent = cosasQueAprendimos[i].tema; //le pongo el texto que tiene el array
+    //tengo que hacer el condicional para que las clases vacias no la guarde asi
+    //ya que me tira error, porque no se puede guardar el valor "" en una clase
+    if (cosasQueAprendimos[i].class != "") {
+      newLiEl.classList.add(cosasQueAprendimos[i].class);
+    }
     ulLista[0].appendChild(newLiEl); //por ultimo agrego el li al ul
   }
 }
